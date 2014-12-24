@@ -1,0 +1,112 @@
+<project name="Onyx" default="dist" basedir=".">
+	<description>
+        Onyx build file
+    </description>
+	<!-- set global properties for this build -->
+	<property name="src" location="src"/>
+	<property name="build" location="bin"/>
+	<property name="dist"  location="dist"/>
+	<property name="JAR_ROOT"  location="Q:/"/>
+
+	<target name="init">
+		<!-- Create the time stamp -->
+		<tstamp/>
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build}"/>
+	</target>
+
+			<path id="onyx.class.path">
+				<pathelement location="${basedir}/bin"/>
+				<pathelement location="antlr-3.3-complete.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/activemq-4.2.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/CBOEUtility.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/client_common.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/client_commonTranslator.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/client_idl.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/client_impls.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/client_interceptors.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/client_interfaces.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/client_intermarketTranslator.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/client_internal_idl.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/client_translator.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/cmi_idl.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/common.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/CommonFacilities.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/commons-beanutils.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/commons-collections.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/commons-digester.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/commons-logging-api.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/commons-logging.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/commons-net.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/concurrency.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/domain_idl.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/domain_impls.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/domain_interfaces.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/event_idl.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/event_impls.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/event_interfaces.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/FoundationFramework.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/gui_common.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/gui_commonBusiness.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/gui_trader.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/InfraVerityIDLClasses.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/itext.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/jasperreports.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/jgl.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/LoggingService.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/LoggingServiceIDL.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/MessagingSystem.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/objectwave.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/OMGBaseClasses.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/OMGServiceClasses.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/ss.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/xercesImpl.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/trader/classes/xmlParserAPIs.jar"/>
+				<pathelement location="${JAR_ROOT}/gui/release/admin/classes/sysAdminClient_idl.jar"/>
+			</path>
+
+	<target name="compile" depends="init" description="compile the source " >
+		<javac srcdir="${src}" destdir="${build}">
+			<classpath refid="onyx.class.path"/>
+		</javac>
+
+		<java classname="org.antlr.Tool" dir="${basedir}" fork="true">
+			<arg value="-o"/>
+			<arg value="src/com/cboe/onyx/"/>
+			<arg value="Onyx.g"/>
+			<arg value="OnyxWalker.g"/>
+			<classpath>
+				<pathelement location="antlr-3.3-complete.jar"/>
+				<pathelement path="${java.class.path}"/>
+			</classpath>
+		</java>
+
+		<eclipse.incrementalBuild project="onyx" kind="clean"/>
+
+	</target>
+
+	<target name="test1" description="test the source " >
+		<java classname="com.cboe.onyx.Onyx" dir="${basedir}" fork="true">
+			<arg value="test/test1.onyx" />
+			<classpath refid="onyx.class.path"/>
+		</java>
+
+		<eclipse.incrementalBuild project="onyx" kind="clean" />
+
+	</target>
+
+	<target name="dist" depends="compile" description="generate the distribution">
+		<!-- Create the distribution directory -->
+		<mkdir dir="${dist}/lib" />
+
+		<!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
+		<jar jarfile="${dist}/lib/MyProject-${DSTAMP}.jar" basedir="${build}"/>
+	</target>
+
+	<target name="clean"
+		description="clean up" >
+		<eclipse.incrementalBuild project="onyx" kind="clean"/>
+		<delete dir="${build}"/>
+		<delete dir="${dist}"/>
+	</target>
+</project>

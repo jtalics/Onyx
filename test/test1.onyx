@@ -1,0 +1,11 @@
+connect to cas where hostname='atgcas3'
+login where username='JTMM' password='JTMM'
+#wait where duration = '5'
+get sessions
+select session where name='W_MAIN'
+#get productTypes
+#get productClasses where productType=option
+#get products where productType=option symbol='AAPL'
+select random product where productType=option symbol='AAPL'
+accept order where sequenceNumber='2' quantity='100' price='12.10' side=buy 
+logout

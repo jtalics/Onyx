@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/activemq-4.2.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/CBOEUtility.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/client_common.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/client_commonTranslator.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/client_idl.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/client_impls.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/client_interceptors.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/client_interfaces.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/client_intermarketTranslator.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/client_internal_idl.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/client_translator.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/cmi_idl.jar" sourcepath="/JAR_ROOT/cmi/release/jars/cmi_idl_java.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/common.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/CommonFacilities.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/commons-beanutils.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/commons-collections.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/commons-digester.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/commons-logging-api.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/commons-logging.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/commons-net.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/concurrency.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/domain_idl.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/domain_impls.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/domain_interfaces.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/event_idl.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/event_impls.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/event_interfaces.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/FoundationFramework.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/gui_common.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/gui_commonBusiness.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/gui_trader.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/InfraVerityIDLClasses.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/itext.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/jasperreports.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/jgl.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/LoggingService.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/LoggingServiceIDL.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/MessagingSystem.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/objectwave.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/OMGBaseClasses.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/OMGServiceClasses.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/ss.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/xercesImpl.jar"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/trader/classes/xmlParserAPIs.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/talafous/Desktop/ANTLR/antlr-3.3/lib/antlr-3.3-complete.jar" sourcepath="C:/Documents and Settings/talafous/Desktop/ANTLR/antlr-3.3"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/internal_translator"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/sys_admin_client_impls"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/sys_admin_client_interfaces"/>
+	<classpathentry kind="var" path="JAR_ROOT/gui/release/admin/classes/sysAdminClient_idl.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
